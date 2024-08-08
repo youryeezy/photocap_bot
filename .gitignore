@@ -3,7 +3,8 @@
 
 # C extensions
 *.so
-
+venv/
+__pycache__/
 # Distribution / packaging
 .Python
 build/
