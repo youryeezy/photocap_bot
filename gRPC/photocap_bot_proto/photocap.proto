@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+service MsTelegramBot {
+    rpc SendMessage (Message) returns (IsSuccessfully) {}
+}
+
+message Message {
+    uint64 phone = 1;
+    string url = 2;
+    string abonent = 3;
+    uint64 lac = 4;
+    uint64 cell = 5;
+    uint64 azimut = 6;
+    string bs_address = 7;
+}
+
+message IsSuccessfully {
+    bool is_successfully = 1;
+}
