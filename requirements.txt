@@ -2,3 +2,4 @@ aiogram == 3.10.0
 asyncpg
 APScheduler
 python-decouple
+grpcio-tools
