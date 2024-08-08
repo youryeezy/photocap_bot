@@ -4,6 +4,7 @@
 # C extensions
 *.so
 venv/
+venv1/
 __pycache__/
 # Distribution / packaging
 .Python
