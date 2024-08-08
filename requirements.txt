@@ -3,3 +3,5 @@ asyncpg
 APScheduler
 python-decouple
 grpcio-tools
+beautifulsoup4
+requests

@@ -8,7 +8,7 @@ venv1/
 __pycache__/
 # Distribution / packaging
 .Python
-handlers/__pycache__/*
+handlers/__pycache__
 build/
 develop-eggs/
 dist/
