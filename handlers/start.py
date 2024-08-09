@@ -4,7 +4,7 @@ import os
 import requests
 from aiogram import Router, F
 from aiogram.filters import CommandStart, Command
-from aiogram.types import Message, FSInputFile, InputMediaPhoto
+from aiogram.types import Message, FSInputFile
 from bs4 import BeautifulSoup
 
 from create_bot import bot
@@ -31,6 +31,8 @@ async def cmd_start_3(message: Message):
     await message.answer('Запуск сообщения по команде /start_3 используя магический фильтр F.text!')
 
 
+
+## Works on only gekk
 @start_router.message(F.text == '/get_photos')
 async def cmd_get_photos(message: Message):
     await message.answer('Запуск сообщения по команде /get_photos!')
@@ -88,8 +90,9 @@ async def cmd_get_images(message: Message):
         img_paths = download_images_from_url(URL)
         if img_paths:
             await message.answer(f"Найдено {len(img_paths)} картинок. Отправляю их вам...")
-            media = [InputMediaPhoto(FSInputFile(img_path)) for img_path in img_paths[:10]]  # Максимум 10 изображений
-            await message.bot.send_media_group(chat_id=message.chat.id, media=media)
+            for img_path in img_paths:
+                file = FSInputFile(img_path)
+                await message.bot.send_photo(chat_id=message.chat.id, photo=file)
     except Exception as e:
         await message.answer(f"Произошла ошибка при скачивании картинок: {str(e)}")
 
